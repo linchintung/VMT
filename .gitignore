@@ -3,6 +3,33 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Data files
+Data*
+.vscode
+*_bak
+*.jpg
+.BUILD
+js
+
+# Magenta
+!lib/magenta/
+lib/magenta/*
+
+!lib/magenta/music/
+!lib/magenta/protobuf/
+
+lib/magenta/music/alignment
+lib/magenta/music/testdata
+
+# Tensor2tensor
+!lib/tensor2tensor/
+lib/tensor2tensor/*
+
+!lib/tensor2tensor/layers/
+!lib/tensor2tensor/utils/
+#!lib/tensor2tensor/models/
+!lib/tensor2tensor/data_generators/
+
 # C extensions
 *.so
 
@@ -14,7 +41,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# lib/
 lib64/
 parts/
 sdist/
