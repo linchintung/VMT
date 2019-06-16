@@ -5,7 +5,7 @@ DATA_DIR=$BASE_DIR/t2t_data
 HPARAMS_SET=video2music_transformer
 MODEL=mytransformer
 PROBLEM=video_music_gen
-DECODE_DIR=$BASE_DIR/dir_train/chosed_model
+DECODE_DIR=$BASE_DIR/t2t_train/chosed_model
 DECODE_FILE=$DATA_DIR/${PROBLEM}-test.tfrecord-00000-of-00001
 
 rm -r $DECODE_DIR/decode*
