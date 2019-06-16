@@ -13,7 +13,7 @@ from tensor2tensor.data_generators import text_encoder
 from video2music import myvideo_utils as video_utils
 from tensor2tensor.layers import modalities as t2t_modalities
 from tensor2tensor.utils import registry
-from tensor2tensor.models import image_transformer_2d
+# from tensor2tensor.models import image_transformer_2d
 from tensor2tensor.layers import common_hparams
 from tensor2tensor.layers import common_image_attention as cia
 # from tensor2tensor.models import transformer
