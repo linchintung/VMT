@@ -32,6 +32,7 @@ lib/tensor2tensor/*
 !lib/tensor2tensor/data_generators/
 !lib/tensor2tensor/bin/
 !lib/tensor2tensor/models/
+!lib/tensor2tensor/envs/
 
 # C extensions
 *.so
