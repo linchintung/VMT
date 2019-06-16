@@ -33,6 +33,7 @@ lib/tensor2tensor/*
 !lib/tensor2tensor/bin/
 !lib/tensor2tensor/models/
 !lib/tensor2tensor/envs/
+!lib/tensor2tensor/rl/
 
 # C extensions
 *.so
