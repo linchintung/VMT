@@ -27,6 +27,7 @@ lib/magenta/music/testdata
 !lib/tensor2tensor/
 lib/tensor2tensor/*
 
+!lib/tensor2tensor/*.py
 !lib/tensor2tensor/layers/
 !lib/tensor2tensor/utils/
 !lib/tensor2tensor/data_generators/
