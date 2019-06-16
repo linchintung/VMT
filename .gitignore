@@ -18,6 +18,7 @@ lib/magenta/*
 !lib/magenta/music/
 !lib/magenta/protobuf/
 !lib/magenta/common/
+!lib/magenta/pipelines/
 
 lib/magenta/music/alignment
 lib/magenta/music/testdata
