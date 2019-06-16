@@ -127,8 +127,8 @@ def log_decode_results(inputs,
       save_video(vid, save_path_template)
     tf.logging.info("Saving video: {}".format(prediction_idx))
     fix_and_save_video(inputs, "inputs")
-    fix_and_save_video(outputs, "outputs")
-    fix_and_save_video(targets, "targets")
+    # fix_and_save_video(outputs, "outputs")
+    # fix_and_save_video(targets, "targets")
 
   is_image = "image" in problem_name
   is_text2class = isinstance(registry.problem(problem_name),
@@ -136,19 +136,22 @@ def log_decode_results(inputs,
   skip_eos_postprocess = is_image or is_text2class or skip_eos_postprocess
 
   decoded_inputs = None
-  if is_image and save_images:
-    save_path = os.path.join(
-        output_dir, "%s_prediction_%d.jpg" % (problem_name, prediction_idx))
-    show_and_save_image(inputs / 255., save_path)
-  elif inputs is not None and inputs_vocab:
-    if identity_output:
-      decoded_inputs = " ".join(map(str, inputs.flatten()))
-    else:
-      decoded_inputs = inputs_vocab.decode(_save_until_eos(
-          inputs, skip_eos_postprocess))
+  # if is_image and save_images:
+  #   save_path = os.path.join(
+  #       output_dir, "%s_prediction_%d.jpg" % (problem_name, prediction_idx))
+  #   show_and_save_image(inputs / 255., save_path)
+  # elif inputs is not None and inputs_vocab:
+  #   if identity_output:
+  #     decoded_inputs = " ".join(map(str, inputs.flatten()))
+  #   else:
+  #     decoded_inputs = inputs_vocab.decode(_save_until_eos(
+  #         inputs, skip_eos_postprocess))
 
-    if log_results and not is_video:
-      tf.logging.info("Inference results INPUT: %s" % decoded_inputs)
+  #   if log_results and not is_video:
+  #     tf.logging.info("Inference results INPUT: %s" % decoded_inputs)
+
+  is_video = False
+  from video2music.logging import logger; logger().error('set is_video=False')
 
   decoded_targets = None
   decoded_outputs = None
@@ -162,11 +165,22 @@ def log_decode_results(inputs,
     if targets is not None and log_results:
       decoded_targets = targets_vocab.decode(_save_until_eos(
           targets, skip_eos_postprocess))
+
+  outputs_name = os.path.join(
+      output_dir,
+      "%s_%s_%05d.mid" % (problem_name, "output", prediction_idx))
+  targets_name = os.path.join(
+      output_dir,
+      "%s_%s_%05d.mid" % (problem_name, "target", prediction_idx))
+
+  shutil.move(decoded_outputs, outputs_name)
+  shutil.move(decoded_targets, targets_name)
+  
   if log_results and not is_video:
-    tf.logging.info("Inference results OUTPUT: %s" % decoded_outputs)
+    tf.logging.info("Inference results OUTPUT: %s" % outputs_name)
   if targets is not None and log_results and not is_video:
-    tf.logging.info("Inference results TARGET: %s" % decoded_targets)
-  return decoded_inputs, decoded_outputs, decoded_targets
+    tf.logging.info("Inference results TARGET: %s" % targets_name)
+  return decoded_inputs, outputs_name, targets_name
 
 
 def decode_from_dataset(estimator,
