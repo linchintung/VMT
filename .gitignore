@@ -29,9 +29,9 @@ lib/tensor2tensor/*
 
 !lib/tensor2tensor/layers/
 !lib/tensor2tensor/utils/
-#!lib/tensor2tensor/models/
 !lib/tensor2tensor/data_generators/
 !lib/tensor2tensor/bin/
+!lib/tensor2tensor/models/
 
 # C extensions
 *.so
