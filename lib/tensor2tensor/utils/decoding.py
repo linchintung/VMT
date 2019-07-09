@@ -24,7 +24,6 @@ import os
 import re
 import string
 import time
-import shutil
 
 import numpy as np
 import six
