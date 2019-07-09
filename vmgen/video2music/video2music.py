@@ -36,7 +36,7 @@ def video2music_transformer():
   """Set of hyperparameters."""
   # hparams = common_hparams.basic_params1()
   hparams = transformer.mytransformer_base()
-  hparams.video_num_input_frames = 30
+  hparams.video_num_input_frames = 40
   hparams.video_num_target_frames = 0
   hparams.bottom["inputs"] = t2t_modalities.video_bottom
   hparams.add_hparam("shuffle_buffer_size", 128)
