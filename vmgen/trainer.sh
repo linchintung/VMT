@@ -7,7 +7,7 @@ MODEL=mytransformer
 PROBLEM=video_music_gen
 TRAIN_DIR=$BASE_DIR/t2t_train/$PROBLEM
 
-# rm -r $TRAIN_DIR
+rm -r $TRAIN_DIR
 
 mkdir -p $DATA_DIR $TRAIN_DIR
 
