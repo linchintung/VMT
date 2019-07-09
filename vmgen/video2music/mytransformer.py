@@ -178,7 +178,7 @@ def transformer_decode(decoder_function,
     # Expand since t2t expects 4d tensors.
     return tf.expand_dims(decoder_output, axis=2)
 
-def savp_encoder(inputs, hparams, n_layers=3):
+def savp_encoder(inputs, hparams, n_layers=5):
   """Convnet that encodes inputs into mean and std of a gaussian.
 
   Args:
@@ -290,7 +290,7 @@ class Mytransformer(t2t_model.T2TModel):
         decode_loop_step=decode_loop_step, nonpadding=nonpadding, losses=losses,
         **kwargs)
   
-  def video_encode(self, inputs, hparams, num_layers=3):
+  def video_encode(self, inputs, hparams, num_layers=5):
     return self._savp_encoder(inputs, hparams, num_layers)
 
   # def total_encode(self, inputs, hparams, num_layers=3)
