@@ -137,7 +137,7 @@ class VideoMusicGen(video_utils.VideoProblem):
     return 10 * 378 * 30
 
   def max_frames_per_video(self, hparams):
-    return 40
+    return 30
 
   @property
   def random_skip(self):
