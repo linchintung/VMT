@@ -134,7 +134,8 @@ class VideoMusicGen(video_utils.VideoProblem):
   # num_train_files * num_videos * num_frames
   @property
   def total_number_of_frames(self):
-    return 10 * 378 * 30
+    # return 10 * 378 * 40
+    return 324000
 
   def max_frames_per_video(self, hparams):
     return 40
@@ -162,8 +163,8 @@ class VideoMusicGen(video_utils.VideoProblem):
   def dataset_splits(self):
     """Splits of data to produce and number of output shards for each."""
     return [
-        {"split": problem.DatasetSplit.TRAIN, "shards": 1},
-        {"split": problem.DatasetSplit.EVAL, "shards": 1},
+        {"split": problem.DatasetSplit.TRAIN, "shards": 85},
+        {"split": problem.DatasetSplit.EVAL, "shards": 9},
         {"split": problem.DatasetSplit.TEST, "shards": 1}]
 
   @property
