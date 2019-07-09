@@ -26,7 +26,7 @@ HPARAMS=\
     --model=${MODEL} \
     --output_dir=${TRAIN_DIR} \
     --problem=${PROBLEM} \
-    --train_steps=200000
+    --train_steps=500000
     # --keep_checkpoint_max=10 \
     # --eval_early_stopping_steps=10
 
