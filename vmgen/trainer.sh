@@ -14,7 +14,7 @@ mkdir -p $DATA_DIR $TRAIN_DIR
 HPARAMS=\
 "label_smoothing=0.0,"\
 "max_length=0,"\
-"max_target_seq_length=1024,"\
+"max_target_seq_length=768,"\
 "hidden_size=512,"\
 "batch_size=4"
 # "batch_shuffle_size=1,"\
