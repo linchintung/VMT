@@ -290,7 +290,7 @@ class Mytransformer(t2t_model.T2TModel):
         decode_loop_step=decode_loop_step, nonpadding=nonpadding, losses=losses,
         **kwargs)
   
-  def video_encode(self, inputs, hparams, num_layers=5):
+  def video_encode(self, inputs, hparams, num_layers=4):
     return self._savp_encoder(inputs, hparams, num_layers)
 
   # def total_encode(self, inputs, hparams, num_layers=3)
