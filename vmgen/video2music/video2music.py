@@ -121,11 +121,11 @@ class VideoMusicGen(video_utils.VideoProblem):
 
   @property
   def frame_height(self):
-    return 256
+    return 128
 
   @property
   def frame_width(self):
-    return 256
+    return 128
 
   @property
   def is_generate_per_split(self):
@@ -135,7 +135,7 @@ class VideoMusicGen(video_utils.VideoProblem):
   @property
   def total_number_of_frames(self):
     # return 10 * 378 * 40
-    return 324000
+    return 487480
 
   def max_frames_per_video(self, hparams):
     return 40

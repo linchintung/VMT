@@ -178,7 +178,7 @@ def transformer_decode(decoder_function,
     # Expand since t2t expects 4d tensors.
     return tf.expand_dims(decoder_output, axis=2)
 
-def savp_encoder(inputs, hparams, n_layers=5):
+def savp_encoder(inputs, hparams, n_layers=3):
   """Convnet that encodes inputs into mean and std of a gaussian.
 
   Args:
@@ -230,6 +230,7 @@ def savp_encoder(inputs, hparams, n_layers=5):
       rectified, [1] + rectified.shape[1:3].as_list() + [1],
       strides=[1, 1, 1, 1], padding="VALID")
   squeezed = tf.squeeze(pooled, [1, 2])
+
   pooled = tf.reshape(pooled, [batch_size, num_frames, 1, latent_dims])
   return pooled
 
@@ -290,7 +291,7 @@ class Mytransformer(t2t_model.T2TModel):
         decode_loop_step=decode_loop_step, nonpadding=nonpadding, losses=losses,
         **kwargs)
   
-  def video_encode(self, inputs, hparams, num_layers=4):
+  def video_encode(self, inputs, hparams, num_layers=3):
     return self._savp_encoder(inputs, hparams, num_layers)
 
   # def total_encode(self, inputs, hparams, num_layers=3)
@@ -1744,7 +1745,7 @@ def mytransformer_base_v1():
   hparams.norm_type = "layer"
   hparams.hidden_size = 512
   hparams.batch_size = 4096
-  hparams.max_length = 256
+  hparams.max_length = 128
   hparams.clip_grad_norm = 0.  # i.e. no gradient clipping
   hparams.optimizer_adam_epsilon = 1e-9
   hparams.learning_rate_schedule = "legacy"

@@ -7,14 +7,14 @@ MODEL=mytransformer
 PROBLEM=video_music_gen
 TRAIN_DIR=$BASE_DIR/t2t_train/$PROBLEM
 
-rm -r $TRAIN_DIR
+# rm -r $TRAIN_DIR
 
 mkdir -p $DATA_DIR $TRAIN_DIR
 
 HPARAMS=\
 "label_smoothing=0.0,"\
 "max_length=0,"\
-"max_target_seq_length=768,"\
+"max_target_seq_length=1024,"\
 "hidden_size=512,"\
 "batch_size=4"
 # "batch_shuffle_size=1,"\
