@@ -7,7 +7,7 @@ Video-Music Transformer (VMT) is an attention-based multi-modal model, which gen
 
 We release a new dataset composed of over 7 hours of piano scores with
 fine alignment between pop music videos and MIDI files.
-Our complete InverseMV dataset is available [here](https://drive.google.com/drive/folders/1wI1ojiwOScSGLZ8UwhwhGNVgTh7wFmjM?usp=sharing).
+Our complete InverseMV dataset is available [here](https://drive.google.com/drive/folders/1J_YCYaj5kAf7oM42BmzYEg2Csu5tPiHR?usp=share_link).
 
 ## Demo
 
